@@ -14,9 +14,12 @@ import sys
 import unittest
 from pathlib import Path
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 from quotation.calculator import QuotationValidationError, calculate_quotation
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = REPO_ROOT / "data"
 CATALOGUE_PATH = DATA_DIR / "HansePack_Katalog.json"
 REFERENCE_PATH = DATA_DIR / "HansePack_Referenzfaelle.json"
